@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  div(class="flex-grid") 
+    div(class="col")
+      h3 Insert url here
+      form(name="submitUrl" action="/search" onsubmit="return validate()" method="POST")
+        input(name="url" id="url-to-fetch" type="text" placeholder="http://ss.com")
+        button(id="run-request" type="submit") Submit
+        div
+          ul
+            each val in domains.length ? domains : [{'domain':'There are no checked domains'}]
+              li= val.domain
+    div(class="col")
+      h3 result will be shown here
+      div
+          ul
+            each val in domainResults.length ? domainResults : ['There are no results yet']
+              li= val
