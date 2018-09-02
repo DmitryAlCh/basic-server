@@ -26,7 +26,8 @@ readFile = async checkedOrResults => {
         console.log("error", err);
         reject();
       } else {
-        console.log(data);
+        console.log("data itself inside readfile:", data);
+        console.log("typeof data itself inside readfile:", typeof data);
         resolve(data);
       }
     });
@@ -55,6 +56,8 @@ addDataToFile = async (checkedOrresults, newData) => {
     }
     readFile(checkedOrresults)
       .then(existingData => {
+        console.log("type of existing data", typeof existingData);
+        console.log(existingData);
         if (existingData.length != 0) {
           existingData = JSON.parse(existingData);
         } else {
@@ -63,8 +66,8 @@ addDataToFile = async (checkedOrresults, newData) => {
         if (Array.isArray(existingData)) {
           existingData.push(newData);
         } else {
-          let arr = [];
-          arr.push(newData);
+          let existingData = [];
+          existingData.push(newData);
         }
         appendData(checkedOrresults, JSON.stringify(existingData))
           .then(success => {

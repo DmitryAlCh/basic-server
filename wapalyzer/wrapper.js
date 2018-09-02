@@ -18,7 +18,7 @@ getTech = domain => {
     wappalyzer
       .analyze()
       .then(json => {
-        resolve(JSON.stringify(json));
+        resolve(json);
         // process.stdout.write(JSON.stringify(json, null, 2) + "\n");
         // process.exit(0);
       })

@@ -9,6 +9,8 @@ router.get("/", function(req, res, next) {
   results = readFile("results");
   Promise.all([alreadyChecked, results])
     .then(values => {
+      console.log(typeof values[1]);
+      console.log("values itself:", values[1]);
       res.render("index", {
         title: "Wappalyzer POC",
         domains: JSON.parse(values[0]),

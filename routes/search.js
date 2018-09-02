@@ -15,7 +15,7 @@ router.post("/", function(req, res, next) {
       .then(values => {
         console.log("data saved to file:", values[0]);
         console.log(values[1]);
-        addDataToFile("results", JSON.stringify(values[1])).catch(e => {
+        addDataToFile("results", values[1]).catch(e => {
           console.log("unable to save results to results file");
         });
         res.redirect("/");

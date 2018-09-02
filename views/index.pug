@@ -18,4 +18,4 @@ block content
       div
           ul
             each val in domainResults.length ? domainResults : ['There are no results yet']
-              li= val
+              li= JSON.stringify(val)
